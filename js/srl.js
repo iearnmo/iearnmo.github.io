@@ -75,7 +75,10 @@ const hcaptchas = (sec) => {
              } seconds</p>`;
 };
 
-
+function eventFunc() {
+    window.location.href = urlLong;
+	}
+	
 var seconds = 15;
       function countdown() {
         seconds--;
@@ -86,8 +89,12 @@ var seconds = 15;
 			var btn = document.getElementById("getlink")
 			btn.disabled = false;
 			console.log(urlLong);
+			document.getElementById("getlink").addEventListener("click", eventFunc);
+
+
+
             } else {
-		 document.getElementById("timer").innerHTML = hcaptchas(seconds);
+		    document.getElementById("timer").innerHTML = hcaptchas(seconds);
            setTimeout(countdown, 1000);
 		  
         }
@@ -97,7 +104,7 @@ var seconds = 15;
       
 function setup() {
 	countdown();
-	document.querySelector("#holla").addEventListener("submit", function(event) {
+	/*document.querySelector("#holla").addEventListener("submit", function(event) {
 
    var hcaptchaVal = document.querySelector('[name="h-captcha-response"]').value;
    if (hcaptchaVal === "") {
@@ -106,7 +113,7 @@ function setup() {
    }else{
       window.location.href = urlLong;
    }
-});
+});*/
 }
 	  
 
