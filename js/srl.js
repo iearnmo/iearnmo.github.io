@@ -78,10 +78,14 @@ const hcaptchas = (sec) => {
 function eventFunc() {
 	var hcaptchaVal = document.querySelector('[name="h-captcha-response"]').value;
    if (hcaptchaVal === "") {
-      event.preventDefault();
+      
       alert("Please complete the hCaptcha");
    }else{
+      if(urlLong === ""){
+		  alert("Url not exist");
+	  }else{
       window.location.href = urlLong;
+	  }
    }
     /*window.location.href = urlLong;*/
 	}
@@ -97,9 +101,6 @@ var seconds = 15;
 			btn.disabled = false;
 			console.log(urlLong);
 			document.getElementById("getlink").addEventListener("click", eventFunc);
-
-
-
             } else {
 		    document.getElementById("timer").innerHTML = hcaptchas(seconds);
            setTimeout(countdown, 1000);
@@ -142,10 +143,14 @@ const dbRef = firebase.database().ref();
   console.log("There are "+snapshot.numChildren()+" messages");
 })*/
 //console.log(dbRef.child("Users").numChildren());
-dbRef.child("ShortUrl").child("235745").get().then((snapshot) => {
+dbRef.child("ShortUrl").child(fetcid).get().then((snapshot) => {
   if (snapshot.exists()) {
     console.log("Long Url:" +snapshot.child("Url").val());
+	if(snapshot.child("Url").exists()){
 	urlLong = snapshot.child("Url").val();
+	}else{
+	urlLong = "";
+	}
   } else {
     console.log("No data available");
   }
