@@ -128,11 +128,10 @@ const dbRef = firebase.database().ref();
   console.log("There are "+snapshot.numChildren()+" messages");
 })*/
 //console.log(dbRef.child("Users").numChildren());
-dbRef.child("ShortUrl").child(fetcid).get().then((snapshot) => {
+dbRef.child("ShortUrl").child("235745").get().then((snapshot) => {
   if (snapshot.exists()) {
     console.log("Long Url:" +snapshot.child("Url").val());
 	urlLong = snapshot.child("Url").val();
-	
   } else {
     console.log("No data available");
   }
