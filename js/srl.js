@@ -76,7 +76,14 @@ const hcaptchas = (sec) => {
 };
 
 function eventFunc() {
-    window.location.href = urlLong;
+	var hcaptchaVal = document.querySelector('[name="h-captcha-response"]').value;
+   if (hcaptchaVal === "") {
+      event.preventDefault();
+      alert("Please complete the hCaptcha");
+   }else{
+      window.location.href = urlLong;
+   }
+    /*window.location.href = urlLong;*/
 	}
 	
 var seconds = 15;
