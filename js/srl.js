@@ -86,11 +86,9 @@ var seconds = 15;
 			var btn = document.getElementById("getlink")
 			btn.disabled = false;
 			console.log(urlLong);
-         // window.location.href = "https://www.example.com";
-        } else {
+            } else {
 		 document.getElementById("timer").innerHTML = hcaptchas(seconds);
-          //document.getElementById("timer").innerHTML = "You will be redirected in " + seconds + " seconds.";
-          setTimeout(countdown, 1000);
+           setTimeout(countdown, 1000);
 		  
         }
 		
@@ -106,7 +104,7 @@ function setup() {
       event.preventDefault();
       alert("Please complete the hCaptcha");
    }else{
-      window.location.href = "https://www.example.com";
+      window.location.href = urlLong;
    }
 });
 }
