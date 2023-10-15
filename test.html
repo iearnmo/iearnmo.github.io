@@ -1,0 +1,25 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    const password = urlParams.get('password');
+
+    // Replace 'your_username' and 'your_password' with your actual values.
+    if (username === 'your_username' && password === 'your_password') {
+      const userData = {
+        username: username,
+        message: 'Login successful!',
+      };
+      const jsonOutput = JSON.stringify(userData, null, 2);
+      document.getElementById('output').textContent = jsonOutput;
+    } else {
+      const errorData = {
+        message: 'Login failed. Please check your credentials.',
+      };
+      const jsonOutput = JSON.stringify(errorData, null, 2);
+      document.getElementById('output').textContent = jsonOutput;
+    }
+  });
+</script>
+
+<div id="output"></div>
